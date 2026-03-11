@@ -1,0 +1,43 @@
+/* 追加のレスポンシブ調整 */
+
+/* タブレット表示 */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-img-wrapper {
+        width: 300px;
+        height: 300px;
+    }
+
+    .floating-card-1 {
+        right: -20px;
+    }
+
+    .floating-card-2 {
+        left: -20px;
+    }
+}
+
+/* 印刷用 */
+@media print {
+
+    .header,
+    .hero-wave,
+    .floating-card,
+    .btn,
+    .hamburger,
+    .footer-links {
+        display: none !important;
+    }
+
+    .section-contact {
+        background: #eee !important;
+        color: #333 !important;
+    }
+
+    .section-contact * {
+        color: #333 !important;
+    }
+
+    body {
+        background: white;
+    }
+}
