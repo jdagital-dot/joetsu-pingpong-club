@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【募集用チラシ】上越ぴんぽん卓球クラブ</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800;900&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --color-primary: #FF8B8B;
+            --color-primary-dark: #FF6B6B;
+            --color-secondary: #FFF5A5;
+            --color-bg: #FFFBF0;
+            --color-white: #FFFFFF;
+            --color-text: #4A3C3C;
+            --color-accent-teal: #61C0BF;
+            --font-main: 'M PLUS Rounded 1c', sans-serif;
+        }
+
+        /* 印刷・A4サイズ用の基本設定 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            font-family: var(--font-main);
+            color: var(--color-text);
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 15mm;
+            margin: 10mm auto;
+            background: var(--color-bg);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 背景の装飾 */
+        .decor-circle-1 {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background: var(--color-secondary);
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.6;
+        }
+        .decor-circle-2 {
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.2;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ヘッダー部分 */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header-badge {
+            display: inline-block;
+            background: var(--color-accent-teal);
+            color: white;
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 20px;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .header-title {
+            font-size: 42px;
+            font-weight: 900;
+            color: var(--color-primary-dark);
+            line-height: 1.2;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 0px white;
+        }
+
+        /* メインビジュアルエリア */
+        .hero-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 4px dashed var(--color-secondary);
+        }
+        .hero-image {
+            width: 40%;
+            border-radius: 15px;
+        }
+        .hero-text {
+            width: 60%;
+            padding-left: 20px;
+        }
+        .hero-text h3 {
+            font-size: 26px;
+            color: var(--color-text);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .hero-text p {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.6;
+        }
+        .highlight {
+            color: var(--color-primary);
+        }
+
+        /* 特徴・ベネフィット */
+        .features {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .feature-box {
+            width: 31%;
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--color-primary);
+        }
+        .feature-box i {
+            font-size: 32px;
+            color: var(--color-accent-teal);
+            margin-bottom: 10px;
+        }
+        .feature-box h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .feature-box p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* 募集要項 */
+        .info-section {
+            background: white;
+            border-radius: 15px;
+            padding: 20px 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .info-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--color-text);
+            border-bottom: 3px solid var(--color-secondary);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .info-list {
+            list-style: none;
+        }
+        .info-list li {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .info-list li i {
+            color: var(--color-primary);
+            margin-top: 4px;
+        }
+
+        /* フッター・CTA */
+        .cta-section {
+            background: var(--color-primary-dark);
+            color: white;
+            border-radius: 15px;
+            padding: 20px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+        .cta-text {
+            flex-grow: 1;
+        }
+        .cta-text h3 {
+            font-size: 26px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .cta-text p {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        
+        /* QRコードコンテナ */
+        .qr-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .qr-code {
+            width: 130px;
+            height: 130px;
+            background: white;
+            padding: 8px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+        }
+        .qr-caption {
+            font-size: 14px;
+            color: white;
+            text-align: center;
+            margin-top: 8px;
+            font-weight: bold;
+        }
+
+        /* 印刷用メディアクエリ */
+        @media print {
+            body {
+                background: none;
+            }
+            .page {
+                margin: 0;
+                padding: 15mm;
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+                page-break-after: always;
+            }
+            .qr-code {
+                border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+    <div class="decor-circle-1"></div>
+    <div class="decor-circle-2"></div>
+    
+    <div class="content">
+        <!-- ヘッダー -->
+        <div class="header">
+            <div class="header-badge">2026年4月 新規スタート！</div>
+            <h1 class="header-title">上越ぴんぽん卓球クラブ<br>第1期生 大募集🏓</h1>
+        </div>
+
+        <!-- メインビジュアル -->
+        <div class="hero-area">
+            <!-- ディレクトリ構成に合わせて画像のパスを設定 -->
+            <img src="docs/instagram_first_post.png" alt="クラブイメージ" class="hero-image" onerror="this.src='https://placehold.co/400x400/FF8B8B/FFFFFF?text=PingPong'">
+            <div class="hero-text">
+                <h3><span class="highlight">「楽しく卓球」</span>が<br>私たちのモットーです！</h3>
+                <p>
+                    運動が苦手な子も大丈夫！<br>
+                    ラケットの握り方から優しく教えます。<br>
+                    週末の新しい習い事として、<br>一緒に笑顔で汗を流しませんか？✨
+                </p>
+            </div>
+        </div>
+
+        <!-- 特徴 -->
+        <div class="features">
+            <div class="feature-box">
+                <i class="fa-solid fa-face-smile-beam"></i>
+                <h4>初心者大歓迎！</h4>
+                <p>ほとんどの子が未経験からのスタートです！基本から丁寧に。</p>
+            </div>
+            <div class="feature-box">
+                <i class="fa-solid fa-yen-sign"></i>
+                <h4>安心の低価格</h4>
+                <p>月額2,000円、または都度払い400円で通いやすい！</p>
+            </div>
+            <div class="feature-box">
+                <i class="fa-solid fa-calendar-check"></i>
+                <h4>自由な参加ペース</h4>
+                <p>部活や他の習い事と両立しやすい自由参加型です。</p>
+            </div>
+        </div>
+
+        <!-- 募集要項 -->
+        <div class="info-section">
+            <h2 class="info-title"><i class="fa-solid fa-circle-info"></i> クラブ活動案内</h2>
+            <ul class="info-list">
+                <li><i class="fa-solid fa-check"></i><strong>対象：</strong> 小学生 〜 中学生 （上越市近郊にお住まいの方）</li>
+                <li><i class="fa-solid fa-check"></i><strong>日時：</strong> 毎週 土・日 （時間についてはウェブサイトで確認）</li>
+                <li><i class="fa-solid fa-check"></i><strong>場所：</strong> 城西中学校 体育館</li>
+                <li><i class="fa-solid fa-check"></i><strong>持ち物：</strong> 室内シューズ、タオル、飲み物 ※ラケット貸出あり</li>
+            </ul>
+        </div>
+
+        <!-- CTA (Call to Action) -->
+        <div class="cta-section">
+            <div class="cta-text">
+                <h3><i class="fa-solid fa-laptop"></i> まずは無料体験へ！</h3>
+                <p>見学のみでも大歓迎！お申込み・詳細確認は<br>右記のQRコードから公式ウェブサイトへアクセス👇</p>
+            </div>
+            <div class="qr-container">
+                <!-- サイトへのQRコード（Google FormのURLを設定しています） -->
+                <div class="qr-code">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://docs.google.com/forms/d/e/1FAIpQLSc_2ImWy-qFUtP0SL7zwKMkvnAmm_fpux9ys-XN0L0TLLcG7Q/viewform" alt="QR Code">
+                </div>
+                <div class="qr-caption">スマホで読み取る👉</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
