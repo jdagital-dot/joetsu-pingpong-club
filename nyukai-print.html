@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【印刷用】入会案内 | 上越ぴんぽん卓球クラブ</title>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800;900&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --color-primary: #FF8B8B;
+            --color-primary-dark: #FF6B6B;
+            --color-secondary: #FFF5A5;
+            --color-bg: #FFFBF0;
+            --color-white: #FFFFFF;
+            --color-text: #4A3C3C;
+            --color-accent-teal: #61C0BF;
+            --font-main: 'M PLUS Rounded 1c', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: #e8e8e8;
+            font-family: var(--font-main);
+            color: var(--color-text);
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 13mm 15mm;
+            margin: 10mm auto;
+            background: var(--color-bg);
+            box-shadow: 0 0 12px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 装飾円 */
+        .decor-circle-1 {
+            position: absolute; top: -60px; right: -60px;
+            width: 280px; height: 280px;
+            background: var(--color-secondary); border-radius: 50%;
+            z-index: 0; opacity: 0.5;
+        }
+        .decor-circle-2 {
+            position: absolute; bottom: -80px; left: -80px;
+            width: 350px; height: 350px;
+            background: var(--color-primary); border-radius: 50%;
+            z-index: 0; opacity: 0.15;
+        }
+
+        .content {
+            position: relative; z-index: 1;
+            flex-grow: 1; display: flex; flex-direction: column; gap: 14px;
+        }
+
+        /* ヘッダー */
+        .doc-header {
+            text-align: center;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--color-secondary);
+        }
+        .doc-header .club-badge {
+            display: inline-block;
+            background: var(--color-accent-teal);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        .doc-header h1 {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--color-primary-dark);
+            line-height: 1.15;
+            text-shadow: 1px 1px 0 white;
+        }
+        .doc-header p {
+            font-size: 13px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        /* セクション共通 */
+        .section-block {
+            background: white;
+            border-radius: 12px;
+            padding: 14px 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .section-title {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--color-text);
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding-bottom: 8px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid var(--color-secondary);
+        }
+        .section-title i { color: var(--color-primary); font-size: 15px; }
+
+        /* ステップ */
+        .steps {
+            display: flex;
+            gap: 6px;
+            align-items: flex-start;
+        }
+        .step {
+            flex: 1;
+            text-align: center;
+            padding: 10px 8px;
+            background: var(--color-bg);
+            border-radius: 10px;
+            border-top: 3px solid var(--color-primary);
+        }
+        .step-num {
+            width: 28px; height: 28px;
+            background: var(--color-primary);
+            color: white;
+            font-weight: 900;
+            font-size: 14px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 6px;
+        }
+        .step h3 { font-size: 12px; font-weight: 800; margin-bottom: 3px; }
+        .step p { font-size: 10px; color: #666; line-height: 1.4; }
+        .step-arrow {
+            flex-shrink: 0;
+            align-self: center;
+            color: var(--color-primary);
+            font-size: 16px;
+        }
+
+        /* 料金 */
+        .fee-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px;
+        }
+        .fee-card {
+            text-align: center;
+            padding: 10px 8px;
+            background: var(--color-bg);
+            border-radius: 10px;
+            border-top: 3px solid var(--color-primary);
+        }
+        .fee-card.teal { border-top-color: var(--color-accent-teal); }
+        .fee-label-sm { font-size: 10px; font-weight: 700; color: #888; margin-bottom: 3px; }
+        .fee-num {
+            font-size: 26px; font-weight: 900;
+            color: var(--color-primary); line-height: 1;
+        }
+        .fee-num.teal { color: var(--color-accent-teal); }
+        .fee-unit-sm { font-size: 10px; color: #888; }
+        .fee-desc { font-size: 9px; color: #999; margin-top: 3px; line-height: 1.4; }
+        .fee-note-box {
+            margin-top: 8px;
+            padding: 7px 10px;
+            background: #fff5f5;
+            border-left: 3px solid var(--color-primary);
+            border-radius: 6px;
+            font-size: 10px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* 2カラムレイアウト（持ち物＋FAQ） */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        /* 持ち物 */
+        .items-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+        .items-list li {
+            display: flex; align-items: center; gap: 7px;
+            font-size: 11.5px; font-weight: 700;
+        }
+        .items-list li i { color: var(--color-accent-teal); font-size: 13px; width: 16px; text-align: center; }
+        .items-list li .sub { font-size: 10px; font-weight: 400; color: #888; display: block; }
+        .badge-sm {
+            display: inline-block;
+            font-size: 9px; font-weight: 700; padding: 1px 5px;
+            border-radius: 10px; margin-left: 4px; vertical-align: middle;
+        }
+        .badge-req { background: var(--color-primary); color: white; }
+        .badge-rent { background: var(--color-accent-teal); color: white; }
+
+        /* FAQ */
+        .faq-list-print { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+        .faq-list-print li { font-size: 10.5px; line-height: 1.5; }
+        .faq-list-print li .fq { font-weight: 800; color: var(--color-primary); }
+        .faq-list-print li .fa { color: #555; padding-left: 14px; display: block; }
+
+        /* CTA フッター */
+        .cta-footer {
+            background: var(--color-primary-dark);
+            color: white;
+            border-radius: 12px;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: auto;
+        }
+        .cta-footer-text h3 {
+            font-size: 18px; font-weight: 900;
+            display: flex; align-items: center; gap: 8px;
+            margin-bottom: 4px;
+        }
+        .cta-footer-text p { font-size: 11px; opacity: 0.9; line-height: 1.5; }
+        .contact-list { list-style: none; margin-top: 5px; display: flex; flex-direction: column; gap: 2px; }
+        .contact-list li { font-size: 11px; display: flex; align-items: center; gap: 6px; }
+        .contact-list li i { opacity: 0.8; }
+        .qr-wrap { text-align: center; flex-shrink: 0; }
+        .qr-img {
+            width: 110px; height: 110px;
+            background: white; padding: 6px; border-radius: 8px;
+        }
+        .qr-img img { width: 100%; height: 100%; }
+        .qr-caption { font-size: 10px; color: white; margin-top: 5px; font-weight: 700; }
+
+        /* 印刷用 */
+        @media print {
+            body { background: none; }
+            .page {
+                margin: 0; box-shadow: none;
+                width: 210mm; height: 297mm;
+                page-break-after: always;
+            }
+        }
+
+        /* ブラウザ向け印刷ボタン（印刷時非表示） */
+        .print-bar {
+            width: 210mm; margin: 0 auto 8px;
+            display: flex; justify-content: flex-end; gap: 10px;
+        }
+        .print-bar a, .print-bar button {
+            font-family: var(--font-main);
+            font-size: 13px; font-weight: 700;
+            padding: 6px 18px; border-radius: 30px;
+            cursor: pointer; border: none;
+            text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+        }
+        .btn-print { background: var(--color-primary); color: white; }
+        .btn-back { background: white; color: var(--color-text); border: 1px solid #ddd; }
+        @media print { .print-bar { display: none; } }
+    </style>
+</head>
+<body>
+
+<div class="print-bar">
+    <a href="nyukai.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i> ウェブ版に戻る</a>
+    <button class="btn-print" onclick="window.print()"><i class="fa-solid fa-print"></i> 印刷する</button>
+</div>
+
+<div class="page">
+    <div class="decor-circle-1"></div>
+    <div class="decor-circle-2"></div>
+
+    <div class="content">
+
+        <!-- ヘッダー -->
+        <div class="doc-header">
+            <div class="club-badge">上越ぴんぽん卓球クラブ</div>
+            <h1>入 会 案 内</h1>
+            <p>土日 13:00〜16:00 ／ 城西中学校 体育館 ／ 初心者歓迎</p>
+        </div>
+
+        <!-- 入会ステップ -->
+        <div class="section-block">
+            <div class="section-title"><i class="fa-solid fa-list-ol"></i> 入会の流れ</div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <h3>見学・無料体験</h3>
+                    <p>活動日にお越しいただき、雰囲気を確かめてください</p>
+                </div>
+                <div class="step-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <h3>入会申込フォーム</h3>
+                    <p>オンラインフォームよりお申し込みください</p>
+                </div>
+                <div class="step-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <h3>入会金を納付</h3>
+                    <p>年間2,000円（スポーツ保険含む）</p>
+                </div>
+                <div class="step-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                <div class="step" style="border-top-color: var(--color-accent-teal);">
+                    <div class="step-num" style="background: var(--color-accent-teal);">4</div>
+                    <h3>活動スタート！</h3>
+                    <p>次の活動日から参加できます</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 料金 -->
+        <div class="section-block">
+            <div class="section-title"><i class="fa-solid fa-yen-sign"></i> 費用・料金</div>
+            <div class="fee-grid">
+                <div class="fee-card">
+                    <div class="fee-label-sm">入会金（年間）</div>
+                    <div class="fee-num">2,000</div>
+                    <div class="fee-unit-sm">円 / 年</div>
+                    <div class="fee-desc">スポーツ保険・備品代含む<br>毎年4月更新</div>
+                </div>
+                <div class="fee-card teal">
+                    <div class="fee-label-sm">月会費コース</div>
+                    <div class="fee-num teal">2,000</div>
+                    <div class="fee-unit-sm">円 / 月</div>
+                    <div class="fee-desc">毎週通いたい方におすすめ</div>
+                </div>
+                <div class="fee-card">
+                    <div class="fee-label-sm">都度払いコース</div>
+                    <div class="fee-num">400</div>
+                    <div class="fee-unit-sm">円 / 1回</div>
+                    <div class="fee-desc">来られる日だけ参加OK</div>
+                </div>
+            </div>
+            <div class="fee-note-box">
+                ※ スポーツ安全保険への加入は必須（入会金に含まれます）。月会費・都度払いはいつでも切り替え可能です。
+            </div>
+        </div>
+
+        <!-- 持ち物 + FAQ -->
+        <div class="two-col">
+            <!-- 持ち物 -->
+            <div class="section-block">
+                <div class="section-title"><i class="fa-solid fa-bag-shopping"></i> 持ち物・準備物</div>
+                <ul class="items-list">
+                    <li>
+                        <i class="fa-solid fa-shoe-prints"></i>
+                        <div>室内シューズ<span class="badge-sm badge-req">必須</span><span class="sub">体育館用の上履き</span></div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-bottle-water"></i>
+                        <div>飲み物<span class="badge-sm badge-req">必須</span><span class="sub">水分補給用</span></div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-shirt"></i>
+                        <div>動きやすい服装<span class="sub">体操着・スポーツウェア</span></div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-hand-dots"></i>
+                        <div>タオル<span class="sub">汗拭き用</span></div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+                        <div>ラケット<span class="badge-sm badge-rent">貸出あり</span><span class="sub">なくてもOK！</span></div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- FAQ -->
+            <div class="section-block">
+                <div class="section-title"><i class="fa-solid fa-circle-question"></i> よくある質問</div>
+                <ul class="faq-list-print">
+                    <li>
+                        <span class="fq">Q. 初心者でも大丈夫？</span>
+                        <span class="fa">はい！ラケットの握り方から丁寧に教えます。ほとんどのメンバーが未経験スタートです。</span>
+                    </li>
+                    <li>
+                        <span class="fq">Q. 途中から入会できる？</span>
+                        <span class="fa">随時受付中です。年度途中でも入会金は年間2,000円固定です。</span>
+                    </li>
+                    <li>
+                        <span class="fq">Q. コースはいつでも変更できる？</span>
+                        <span class="fa">月会費↔都度払いの切り替えはいつでも可能です。</span>
+                    </li>
+                    <li>
+                        <span class="fq">Q. 保護者の送迎は必要？</span>
+                        <span class="fa">小中学生は原則、保護者の送迎をお願いしています。</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CTAフッター -->
+        <div class="cta-footer">
+            <div class="cta-footer-text">
+                <h3><i class="fa-solid fa-envelope"></i> お申込み・お問い合わせ</h3>
+                <p>見学のみでも大歓迎！お気軽にご連絡ください。</p>
+                <ul class="contact-list">
+                    <li><i class="fa-solid fa-phone"></i> 070-2837-6716（担当: 宮本）</li>
+                    <li><i class="fa-brands fa-instagram"></i> @joetsu.pingpong</li>
+                    <li><i class="fa-solid fa-globe"></i> 右記QRコードから申込フォームへ</li>
+                </ul>
+            </div>
+            <div class="qr-wrap">
+                <div class="qr-img">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://docs.google.com/forms/d/e/1FAIpQLSc_2ImWy-qFUtP0SL7zwKMkvnAmm_fpux9ys-XN0L0TLLcG7Q/viewform" alt="申込フォームQRコード">
+                </div>
+                <div class="qr-caption">入会・体験申込みフォーム</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
