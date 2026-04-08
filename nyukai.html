@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>入会案内 | 上越ぴんぽん卓球クラブ</title>
+    <meta name="description" content="上越ぴんぽん卓球クラブの入会案内。入会手順・料金・持ち物・よくある質問をまとめています。">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;700;800&family=Nunito:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ページ固有スタイル */
+        .nyukai-section {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+        .nyukai-section h2 {
+            color: var(--color-text);
+            font-size: 1.4rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--color-secondary);
+        }
+        .nyukai-section h2 i {
+            color: var(--color-primary);
+        }
+
+        /* ステップリスト */
+        .step-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            padding: 1.25rem;
+            background: var(--color-bg);
+            border-radius: 14px;
+            border-left: 4px solid var(--color-primary);
+        }
+        .step-number {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            background: var(--color-primary);
+            color: white;
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.1rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .step-body h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 0.3rem;
+        }
+        .step-body p {
+            font-size: 0.92rem;
+            color: #666;
+            line-height: 1.7;
+            margin: 0;
+        }
+        .step-arrow {
+            text-align: center;
+            color: var(--color-primary);
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        /* 料金カード */
+        .fee-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        .fee-card {
+            background: var(--color-bg);
+            border-radius: 14px;
+            padding: 1.25rem;
+            text-align: center;
+            border-top: 4px solid var(--color-primary);
+        }
+        .fee-card.highlight-card {
+            border-top-color: var(--color-accent-teal);
+        }
+        .fee-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+        .fee-amount {
+            font-family: var(--font-heading);
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            line-height: 1;
+        }
+        .fee-amount.teal {
+            color: var(--color-accent-teal);
+        }
+        .fee-unit {
+            font-size: 0.82rem;
+            color: #888;
+            margin-top: 0.25rem;
+        }
+        .fee-note {
+            font-size: 0.82rem;
+            color: #666;
+            margin-top: 0.6rem;
+            line-height: 1.5;
+        }
+        .fee-initial-note {
+            margin-top: 1rem;
+            padding: 0.9rem 1.25rem;
+            background: #fff5f5;
+            border-left: 4px solid var(--color-primary);
+            border-radius: 8px;
+            font-size: 0.88rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* 持ち物リスト */
+        .items-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.85rem;
+        }
+        .item-card {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            padding: 1rem 1.1rem;
+            background: var(--color-bg);
+            border-radius: 12px;
+        }
+        .item-card i {
+            font-size: 1.4rem;
+            color: var(--color-accent-teal);
+            flex-shrink: 0;
+        }
+        .item-card .item-text strong {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+        .item-card .item-text span {
+            font-size: 0.82rem;
+            color: #888;
+        }
+        .item-card.optional {
+            opacity: 0.75;
+        }
+        .badge-required {
+            display: inline-block;
+            background: var(--color-primary);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 1px 7px;
+            border-radius: 20px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+        .badge-rental {
+            display: inline-block;
+            background: var(--color-accent-teal);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 1px 7px;
+            border-radius: 20px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        /* FAQ */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+        }
+        .faq-item {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--color-border);
+        }
+        .faq-q {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.25rem;
+            background: var(--color-bg);
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+        .faq-q .q-icon {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            background: var(--color-primary);
+            color: white;
+            font-weight: 800;
+            font-size: 0.85rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .faq-q .chevron {
+            margin-left: auto;
+            color: #aaa;
+            transition: transform 0.3s;
+        }
+        .faq-item.open .faq-q .chevron {
+            transform: rotate(180deg);
+        }
+        .faq-a {
+            display: none;
+            padding: 1rem 1.25rem;
+            padding-left: calc(1.25rem + 28px + 0.75rem);
+            font-size: 0.92rem;
+            color: #555;
+            line-height: 1.75;
+            background: white;
+            border-top: 1px solid var(--color-border);
+        }
+        .faq-item.open .faq-a {
+            display: block;
+        }
+
+        /* CTAセクション */
+        .cta-box {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent-rose));
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            color: white;
+            margin-bottom: 2.5rem;
+        }
+        .cta-box h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        .cta-box p {
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-white {
+            background: white;
+            color: var(--color-primary);
+            font-weight: 800;
+            border-radius: var(--radius-full);
+            padding: 0.85rem 1.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            text-decoration: none;
+        }
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+        .btn-ghost-white {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            font-weight: 700;
+            border-radius: var(--radius-full);
+            padding: 0.85rem 1.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        .btn-ghost-white:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        @media (max-width: 768px) {
+            .fee-grid { grid-template-columns: 1fr; }
+            .items-grid { grid-template-columns: 1fr; }
+            .nyukai-section { padding: 1.5rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><i class="fa-solid fa-table-tennis-paddle-ball"></i></span>
+                <span class="logo-text">上越ぴんぽん<span class="logo-sub">卓球クラブ</span></span>
+            </a>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">トップ</a>
+                <a href="index.html#pricing">料金</a>
+                <a href="rules.html">クラブ規約</a>
+                <a href="nyukai-print.html" target="_blank"><i class="fa-solid fa-print"></i> 印刷用</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_2ImWy-qFUtP0SL7zwKMkvnAmm_fpux9ys-XN0L0TLLcG7Q/viewform" class="btn btn-primary btn-sm" target="_blank">入会申込み</a>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="メニュー">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="section section-cream">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">How to Join</span>
+                <h1 class="section-title">入会案内</h1>
+                <p class="section-subtitle">上越ぴんぽん卓球クラブへようこそ！<br>入会の流れや料金・持ち物をまとめました。</p>
+            </div>
+
+            <!-- ステップ -->
+            <div class="nyukai-section fade-in">
+                <h2><i class="fa-solid fa-list-ol"></i> 入会の流れ（4ステップ）</h2>
+                <div class="step-list">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-body">
+                            <h3>見学・無料体験に来る</h3>
+                            <p>まずはお気軽に見学または無料体験へお越しください。活動日（土・日 13:00〜16:00）であればいつでも歓迎です。事前にお電話・フォームからご連絡いただけるとスムーズです。</p>
+                        </div>
+                    </div>
+                    <div class="step-arrow"><i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-body">
+                            <h3>入会申込フォームへ記入</h3>
+                            <p>入会をご希望の方は、オンラインの「入会申込フォーム」にてお申し込みください。お子さまの氏名・学年・保護者の連絡先などをご記入いただきます。</p>
+                        </div>
+                    </div>
+                    <div class="step-arrow"><i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-body">
+                            <h3>入会金を納付する</h3>
+                            <p>役員より連絡が届きましたら、入会金（年間 2,000円）を指定の方法でお支払いください。スポーツ安全保険への加入費用・備品代が含まれます。</p>
+                        </div>
+                    </div>
+                    <div class="step-arrow"><i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="step-item" style="border-left-color: var(--color-accent-teal);">
+                        <div class="step-number" style="background: var(--color-accent-teal);">4</div>
+                        <div class="step-body">
+                            <h3>活動スタート！</h3>
+                            <p>登録完了のご連絡後、次の活動日から参加できます。ラケットの握り方から丁寧に教えますので、初めての方もご安心ください。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 費用・料金 -->
+            <div class="nyukai-section fade-in">
+                <h2><i class="fa-solid fa-yen-sign"></i> 費用・料金について</h2>
+                <div class="fee-grid">
+                    <div class="fee-card">
+                        <div class="fee-label">入会金（年間）</div>
+                        <div class="fee-amount">2,000</div>
+                        <div class="fee-unit">円 / 年</div>
+                        <div class="fee-note">スポーツ保険料・備品代を含む<br>毎年4月に更新</div>
+                    </div>
+                    <div class="fee-card highlight-card">
+                        <div class="fee-label">月会費コース</div>
+                        <div class="fee-amount teal">2,000</div>
+                        <div class="fee-unit">円 / 月</div>
+                        <div class="fee-note">毎週通う方におすすめ<br>いつでも都度払いに変更可</div>
+                    </div>
+                    <div class="fee-card">
+                        <div class="fee-label">都度払いコース</div>
+                        <div class="fee-amount">400</div>
+                        <div class="fee-unit">円 / 1回</div>
+                        <div class="fee-note">来られる日だけ参加OK<br>いつでも月会費に変更可</div>
+                    </div>
+                </div>
+                <div class="fee-initial-note">
+                    <i class="fa-solid fa-circle-info" style="color: var(--color-primary); margin-right: 6px;"></i>
+                    <strong>スポーツ安全保険への加入は必須</strong>です。入会金（2,000円）に含まれていますので、別途お支払いいただく必要はありません。月会費・都度払いのどちらのコースも、入会後いつでも切り替え可能です。
+                </div>
+            </div>
+
+            <!-- 持ち物 -->
+            <div class="nyukai-section fade-in">
+                <h2><i class="fa-solid fa-bag-shopping"></i> 持ち物・準備物</h2>
+                <div class="items-grid">
+                    <div class="item-card">
+                        <i class="fa-solid fa-shoe-prints"></i>
+                        <div class="item-text">
+                            <strong>室内シューズ <span class="badge-required">必須</span></strong>
+                            <span>体育館用の上履き・運動靴</span>
+                        </div>
+                    </div>
+                    <div class="item-card">
+                        <i class="fa-solid fa-bottle-water"></i>
+                        <div class="item-text">
+                            <strong>飲み物 <span class="badge-required">必須</span></strong>
+                            <span>水分補給用のドリンク</span>
+                        </div>
+                    </div>
+                    <div class="item-card">
+                        <i class="fa-solid fa-shirt"></i>
+                        <div class="item-text">
+                            <strong>動きやすい服装</strong>
+                            <span>体操着・スポーツウェアなど</span>
+                        </div>
+                    </div>
+                    <div class="item-card">
+                        <i class="fa-solid fa-hand-dots"></i>
+                        <div class="item-text">
+                            <strong>タオル</strong>
+                            <span>汗拭き用</span>
+                        </div>
+                    </div>
+                    <div class="item-card optional">
+                        <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+                        <div class="item-text">
+                            <strong>ラケット <span class="badge-rental">貸出あり</span></strong>
+                            <span>お持ちでなくてもOK！</span>
+                        </div>
+                    </div>
+                    <div class="item-card optional">
+                        <i class="fa-solid fa-notes-medical"></i>
+                        <div class="item-text">
+                            <strong>常備薬・持病のある方</strong>
+                            <span>必要に応じてご持参ください</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ -->
+            <div class="nyukai-section fade-in">
+                <h2><i class="fa-solid fa-circle-question"></i> よくある質問（FAQ）</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-q">
+                            <span class="q-icon">Q</span>
+                            <span>卓球が全くの初心者でも大丈夫ですか？</span>
+                            <i class="fa-solid fa-chevron-down chevron"></i>
+                        </div>
+                        <div class="faq-a">
+                            もちろん大歓迎です！ラケットの持ち方・打ち方から丁寧に教えます。クラブに入るメンバーのほとんどが初心者スタートです。焦らず自分のペースで上達できる環境を用意しています。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-q">
+                            <span class="q-icon">Q</span>
+                            <span>年度の途中から入会することはできますか？</span>
+                            <i class="fa-solid fa-chevron-down chevron"></i>
+                        </div>
+                        <div class="faq-a">
+                            はい、随時入会を受け付けています。途中から入会された場合も、入会金（スポーツ保険含む）は年間2,000円の固定となります。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-q">
+                            <span class="q-icon">Q</span>
+                            <span>月会費コースと都度払いコースはいつでも切り替えられますか？</span>
+                            <i class="fa-solid fa-chevron-down chevron"></i>
+                        </div>
+                        <div class="faq-a">
+                            はい、いつでも変更できます。「部活が忙しい時期は都度払いにしたい」「夏休みは毎週行きたいから月会費に切り替えたい」など、ご家庭のペースに合わせてご利用ください。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-q">
+                            <span class="q-icon">Q</span>
+                            <span>保護者の送迎・付き添いは必要ですか？</span>
+                            <i class="fa-solid fa-chevron-down chevron"></i>
+                        </div>
+                        <div class="faq-a">
+                            小中学生以下のお子さまは、原則として保護者の送迎をお願いしています。活動中の付き添いは必須ではありませんが、見学・応援は歓迎です。保護者の方が一緒に卓球を楽しんでいただくことも可能です。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-q">
+                            <span class="q-icon">Q</span>
+                            <span>ラケットは自分で用意する必要がありますか？</span>
+                            <i class="fa-solid fa-chevron-down chevron"></i>
+                        </div>
+                        <div class="faq-a">
+                            最初はラケットの貸し出しがありますので、ご自身で購入する必要はありません。続けるうちに自分のラケットが欲しくなったら、コーチに相談しながら選んでいただけます。
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-box fade-in">
+                <h2>まずは無料体験へ！</h2>
+                <p>見学だけでも大歓迎。お気軽にお問い合わせください。</p>
+                <div class="cta-buttons">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_2ImWy-qFUtP0SL7zwKMkvnAmm_fpux9ys-XN0L0TLLcG7Q/viewform" class="btn-white" target="_blank">
+                        <i class="fa-solid fa-pen-to-square"></i> 入会・体験申込みフォーム
+                    </a>
+                    <a href="nyukai-print.html" class="btn-ghost-white" target="_blank">
+                        <i class="fa-solid fa-print"></i> この案内を印刷する
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+                <span>上越ぴんぽん卓球クラブ</span>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">トップ</a>
+                <a href="nyukai.html">入会案内</a>
+                <a href="rules.html">クラブ規約</a>
+                <a href="index.html#contact">お問い合わせ</a>
+            </div>
+            <p class="footer-copy" style="margin-top: 1.5rem;">&copy; 2026 上越ぴんぽん卓球クラブ. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // スクロールフェードイン
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) entry.target.classList.add("visible");
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+
+            // ハンバーガーメニュー
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('open');
+            });
+
+            // FAQ アコーディオン
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.querySelector('.faq-q').addEventListener('click', () => {
+                    item.classList.toggle('open');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
